@@ -57,6 +57,10 @@ export const Registration = () => {
           helperText={errors.fullName?.message}
           {...register("fullName", {
             required: "Укажите полное имя",
+            minLength: {
+              value: 3,
+              message: "Имя должно содержать минимум 3 символа",
+            },
           })}
           className={styles.field}
           label="Полное имя"
@@ -66,7 +70,7 @@ export const Registration = () => {
           type="email"
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
-          {...register("email", { required: "Укажите почту" })}
+          {...register("email", { required: "Укажите почту",  })}
           className={styles.field}
           label="E-Mail"
           fullWidth
