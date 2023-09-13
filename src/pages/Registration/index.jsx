@@ -55,7 +55,9 @@ export const Registration = () => {
         <TextField
           error={Boolean(errors.fullName?.message)}
           helperText={errors.fullName?.message}
-          {...register("fullName", { required: "Укажите полное имя" })}
+          {...register("fullName", {
+            required: "Укажите полное имя",
+          })}
           className={styles.field}
           label="Полное имя"
           fullWidth
@@ -73,7 +75,13 @@ export const Registration = () => {
           type="password"
           error={Boolean(errors.password?.message)}
           helperText={errors.password?.message}
-          {...register("password", { required: "Укажите пароль" })}
+          {...register("password", {
+            required: "Укажите пароль",
+            minLength: {
+              value: 5,
+              message: "Пароль должен содержать минимум 5 символов",
+            },
+          })}
           className={styles.field}
           label="Пароль"
           fullWidth

@@ -63,7 +63,13 @@ export const Login = () => {
           type="password"
           error={Boolean(errors.password?.message)}
           helperText={errors.password?.message}
-          {...register("password", { required: "Укажите пароль" })}
+          {...register("password", {
+            required: "Укажите пароль",
+            minLength: {
+              value: 5,
+              message: "Имя пользователя должно содержать минимум 5 символов",
+            },
+          })}
         />
         <Button
           disabled={!isValid}
